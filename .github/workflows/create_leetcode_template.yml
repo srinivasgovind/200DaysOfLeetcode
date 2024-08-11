@@ -26,7 +26,7 @@ jobs:
           # Calculate the day number
           CURRENT_DATE=$(date +%Y-%m-%d)
           DAYS_DIFF=$(( ($(date -d "$CURRENT_DATE" +%s) - $(date -d "$START_DATE" +%s)) / 86400 ))
-          DAY_NUMBER=$((DAYS_DIFF + 6))
+          DAY_NUMBER=$((DAYS_DIFF + 1))
           
           # Format date and filename
           FORMATTED_DATE=$(date +%Y-%m-%d)
