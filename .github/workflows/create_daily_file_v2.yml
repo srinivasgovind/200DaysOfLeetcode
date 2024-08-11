@@ -21,7 +21,7 @@ jobs:
           export TZ='America/Chicago'
           
           # Set the start date (July 15th as day 6)
-          START_DATE="2024-07-15"
+          START_DATE="2024-08-11"
           
           # Calculate the day number
           CURRENT_DATE=$(date +%Y-%m-%d)
