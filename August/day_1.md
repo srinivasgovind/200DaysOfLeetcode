@@ -112,5 +112,57 @@ public void solve(int n) {
     }
 }
 ```
+---
 
+### 🧩 Problem 4: Palindrome Number 
+- **Approach 1:**
+  - *Reverse a number and compare*
+- **⏳ Time Complexity:** `O(log10(x))`
+- **💾 Space Complexity:** `O(1)`
+
+```java
+// Code implementation for Problem 3
+public boolean isPalindrome(int x) {
+
+  if( x < 0){
+    return false;
+  }
+  int result = 0;
+  int i = 0;
+  int xcopy = x;
+  while(xcopy > 0){
+    int last_digit = xcopy % 10 ;
+    result = result * 10 + last_digit;
+    xcopy /= 10;
+    i++;
+  }
+
+  if(result == x){
+    return true;
+  }
+  return false;
+}
+```
+- **Approach 2:**
+  - *Reverse a half number and compare with orginal half*
+  - *Number  ends with zero can never be a palindrome, if a number of digits is odd then middle should be ignored*
+- **⏳ Time Complexity:** `O(log10(x)) or O(log10(x))/2`
+- **💾 Space Complexity:** `O(1)`
+
+```java
+// Code implementation for Problem 3
+public boolean isPalindrome(int x) {
+  if( x < 0 || (x > 0 && x % 10 == 0)){
+    return false;
+  }
+  int reversed = 0;
+
+  while(x > reversed){
+    int last_digit = x % 10;
+    reversed = reversed * 10 + last_digit;
+    x = x/10;
+  }
+  return ( x == reversed || x == (reversed/10));
+}
+```
 ---
