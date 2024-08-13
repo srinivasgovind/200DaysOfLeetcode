@@ -103,16 +103,99 @@ public boolean containsDuplicate(int[] nums) {
 ```
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+### 🧩 Problem 3: Valid Anagram
+- **Approach1:**
+  - * Store both strings in two hashmaps and compare both values are same*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(n)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
+public boolean isAnagram(String s, String t) {
+
+  if(s.length() != t.length()){
+    return false;
+  }
+
+  Map<Character, Integer> hm1 = new HashMap<>();
+  Map<Character, Integer> hm2 = new HashMap<>();
+  
+  for(char ch : s.toCharArray()){
+    hm1.put(ch,hm1.getOrDefault(ch,0)+1);
+  }
+
+  for(char ch : t.toCharArray()){
+    hm2.put(ch, hm2.getOrDefault(ch,0)+1);
+  }
+
+  for(char ch : s.toCharArray()){
+    if( !hm2.containsKey(ch) || !hm1.get(ch).equals(hm2.get(ch))){
+      return false;
+    }
+  }
+  return true;
+}
 ```
 
+- **Approach2:**
+  - * Using Single Hashmap to manpulate both strings count*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(n)`
+
+```java
+// Code implementation for Problem 3
+public boolean isAnagram(String s, String t) {
+
+  if(s.length() != t.length()){
+    return false;
+  }
+
+  Map<Character, Integer> hm = new HashMap<>();
+
+  for(char ch : s.toCharArray()){
+    hm.put(ch,hm.getOrDefault(ch,0)+1);
+  }
+
+  for(char ch : t.toCharArray()){
+    hm.put(ch, hm.getOrDefault(ch,0)-1);
+  }
+
+  for(char ch : hm.keySet()){
+    if(hm.get(ch) != 0){
+      return false;
+    }
+  }
+  return true;
+}
+```
+
+- **Approach:3**
+  - * HashTable using Array*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(n)`
+
+```java
+// Code implementation for Problem 3
+public boolean isAnagram(String s, String t) {
+
+  int[] charMap = new int[26];
+
+  for(char ch : s.toCharArray()){
+    charMap[ch-97]++; //count[x - 'a']++;
+  }
+
+
+  for(char ch : t.toCharArray()){
+    charMap[ch-97]--; //count[x - 'a']--;
+  }
+
+  for(int count: charMap){
+    if(count != 0){
+      return false;
+    }
+  }
+  return true;
+}
+```
 ---
 
