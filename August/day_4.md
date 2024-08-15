@@ -56,3 +56,48 @@ public static void reverseArray(int[] arr, int start, int end){
 
 ---
 
+### 🧩 Problem 2: Rotate the Array Left
+- **Approach:**
+  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
+- **⏳ Time Complexity:** `O(m*n)`
+- **💾 Space Complexity:** `O(m*n)`
+
+```java
+// Code implementation for Problem 2
+public int[][] solve(int[] A, int[] B)
+{
+
+
+  int resultMatrix[][]= new int[B.length][A.length];
+
+
+
+  for(int i = 0 ; i < B.length ; i++){
+    int k = B[i] % A.length;
+    int[] temp  = Arrays.copyOf(A, A.length);
+    int[] reversed = reverseArray(temp, 0, A.length-1);
+    int[] reverse1 = reverseArray(reversed, 0, A.length - k -1);
+    int[] reversed2 = reverseArray(reverse1, A.length-k, A.length -1);
+
+    for(int j = 0; j < A.length; j++){
+      resultMatrix[i][j] = reversed2[j];
+    }
+  }
+  return resultMatrix;
+}
+public int[] reverseArray(int[] arr, int startptr, int endptr){
+
+  while(startptr < endptr){
+    int temp = arr[startptr];
+    arr[startptr] = arr[endptr];
+    arr[endptr] = temp;
+    startptr++;
+    endptr--;
+  }
+  return arr;
+}
+
+```
+
+---
+
