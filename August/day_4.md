@@ -5,41 +5,53 @@
 
 ---
 
-### 🧩 Problem 1: [Problem Title or Description]
+### 🧩 Problem 1: Rotate the Array
 - **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+  - * This problem can be solved if we get intution of reversing the array*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 1
-[Write your Java code here]
-```
+public static void main(String[] args) {
+  // YOUR CODE GOES HERE
+  // Please take input and print output to standard input/output (stdin/stdout)
+  // DO NOT USE ARGUMENTS FOR INPUTS
 
----
+  Scanner sc = new Scanner(System.in);
 
-### 🧩 Problem 2: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+  int n = sc.nextInt();
+  int arr[]  = new int[n];
+  for(int i = 0 ; i < n ; i++){
+    arr[i] = sc.nextInt();
+  }
+  int k = sc.nextInt();
+  if( k > n){
+    k = k % n;
+  }
+  reverseArray(arr, 0, n -1);
+  reverseArray(arr, 0, k-1);
+  reverseArray(arr, k, n-1);
 
-```java
-// Code implementation for Problem 2
-[Write your Java code here]
-```
+  for(int i = 0 ; i < arr.length; i++){
+    System.out.print(arr[i] + " ");
+  }
 
----
+}
 
-### 🧩 Problem 3: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+public static void reverseArray(int[] arr, int start, int end){
 
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
+  int startptr = start;
+  int endptr = end;
+
+  while(startptr < endptr){
+    int temp = arr[startptr];
+    arr[startptr] = arr[endptr];
+    arr[endptr] = temp;
+    startptr++;
+    endptr--;
+  }
+}
 ```
 
 ---
