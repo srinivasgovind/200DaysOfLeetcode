@@ -57,8 +57,8 @@ public static void reverseArray(int[] arr, int start, int end){
 ---
 
 ### 🧩 Problem 2: Rotate the Array Left
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
+- **Approach1:**
+  - * Used same technique of reversed array but splliting the array need to be taken properly*
 - **⏳ Time Complexity:** `O(m*n)`
 - **💾 Space Complexity:** `O(m*n)`
 
@@ -75,17 +75,17 @@ public int[][] solve(int[] A, int[] B)
   for(int i = 0 ; i < B.length ; i++){
     int k = B[i] % A.length;
     int[] temp  = Arrays.copyOf(A, A.length);
-    int[] reversed = reverseArray(temp, 0, A.length-1);
-    int[] reverse1 = reverseArray(reversed, 0, A.length - k -1);
-    int[] reversed2 = reverseArray(reverse1, A.length-k, A.length -1);
+    reverseArray(temp, 0, A.length-1);
+    reverseArray(temp, 0, A.length - k -1);
+    reverseArray(temp, A.length-k, A.length -1);
 
     for(int j = 0; j < A.length; j++){
-      resultMatrix[i][j] = reversed2[j];
+      resultMatrix[i][j] = temp[j];
     }
   }
   return resultMatrix;
 }
-public int[] reverseArray(int[] arr, int startptr, int endptr){
+public void reverseArray(int[] arr, int startptr, int endptr){
 
   while(startptr < endptr){
     int temp = arr[startptr];
@@ -94,10 +94,45 @@ public int[] reverseArray(int[] arr, int startptr, int endptr){
     startptr++;
     endptr--;
   }
-  return arr;
+
 }
-
 ```
+**Approach2:**
+- * Direct copy elements to new array but need to check properyly for loop condn*
+- **⏳ Time Complexity:** `O(m*n)`
+- **💾 Space Complexity:** `O(m*n)`
 
+```java
+// Code implementation for Problem 2
+public int[][] solve(int[] A, int[] B)
+{
+
+
+  int resultMatrix[][]= new int[B.length][A.length];
+
+
+
+  for(int i = 0 ; i < B.length ; i++){
+    int k = B[i] % A.length;
+    int[] temp  = new int[A.length];
+    int startptr = 0;
+
+    for(int p = k ; p < A.length; p++){
+      temp[startptr] = A[p];
+      startptr++;
+    }
+    for(int p = 0 ; p < k; p++){
+      temp[startptr] = A[p];
+      startptr++;
+    }
+
+
+    for(int j = 0; j < A.length; j++){
+      resultMatrix[i][j] = temp[j];
+    }
+  }
+  return resultMatrix;
+}
+```
 ---
 
