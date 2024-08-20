@@ -5,41 +5,40 @@
 
 ---
 
-### 🧩 Problem 1: [Problem Title or Description]
+### 🧩 Problem 1: Valid Paranthesis
 - **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+  - *Use Stack*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(n)`
 
 ```java
 // Code implementation for Problem 1
-[Write your Java code here]
-```
+public boolean isValid(String s) {
 
----
+  Stack<Character> stack = new Stack<>();
 
-### 🧩 Problem 2: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
-
-```java
-// Code implementation for Problem 2
-[Write your Java code here]
-```
-
----
-
-### 🧩 Problem 3: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
-
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
+  for(int i = 0; i<s.length(); i++){
+    char ch = s.charAt(i);
+    if(ch == '{' || ch == '[' || ch == '('){
+      stack.push(ch);
+      continue;
+    }
+    if(stack.isEmpty()){
+      return false;
+    }
+    char peek = stack.peek();
+    if((ch == '}' && peek == '{') || (ch == ']' && peek == '[') || (ch == ')' && peek == '(')){
+      stack.pop();
+    }
+    else{
+      return false;
+    }
+  }
+  if(!stack.isEmpty()){
+    return false;
+  }
+  return true;
+}
 ```
 
 ---
