@@ -159,6 +159,6 @@ public int solve(int[] A) {
   return count;
 
 }
-```
+```                                                             
 ---
 
