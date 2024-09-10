@@ -1,0 +1,37 @@
+name: Generate Weekly Report
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every Sunday at midnight
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Combine daily logs into weekly report
+        run: |
+          mkdir -p weekly_reports
+          week_start=$(date -d "last sunday - 6 days" +%Y-%m-%d)
+          week_end=$(date -d "last sunday" +%Y-%m-%d)
+          report_file="weekly_reports/weekly_report_${week_start}_to_${week_end}.md"
+          echo "# Weekly Report (${week_start} to ${week_end})" > $report_file
+          echo "" >> $report_file
+
+          for file in $(ls day*.md | sort); do
+            cat $file >> $report_file
+            echo "" >> $report_file
+            echo "---" >> $report_file
+            echo "" >> $report_file
+          done
+
+      - name: Commit weekly report
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add weekly_reports/
+          git commit -m "Add weekly report for ${week_start} to ${week_end}"
+          git push
