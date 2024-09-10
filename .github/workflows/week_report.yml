@@ -3,6 +3,7 @@ name: Generate Weekly Report
 on:
   schedule:
     - cron: '0 0 * * 0'  # Runs every Sunday at midnight
+  workflow_dispatch:
 
 jobs:
   build:
@@ -10,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Combine daily logs into weekly report
         run: |
