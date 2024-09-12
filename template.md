@@ -6,10 +6,20 @@
 ---
 
 ### 🧩 Problem 1: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+- **Approach 1: Bruteforce**
+  - *[Briefly describe your approach]*
+- **⏳ Time Complexity:** `O(n^2)`
+- **💾 Space Complexity:** `O(n)`
+
+```java
+// Code implementation for Problem 1
+[Write your Java code here]
+```
+
+- **Approach 2: Optimized**
+  - *[Briefly describe your approach]*
+- **⏳ Time Complexity:** `O(n^2)`
+- **💾 Space Complexity:** `O(n)`
 
 ```java
 // Code implementation for Problem 1
@@ -19,26 +29,46 @@
 ---
 
 ### 🧩 Problem 2: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+- **Approach 1: Bruteforce**
+  - *[Briefly describe your approach]*
+- **⏳ Time Complexity:** `O(n^2)`
+- **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 2
+// Code implementation for Problem 1
+[Write your Java code here]
+```
+
+- **Approach 2: Optimized**
+  - *[Briefly describe your approach]*
+- **⏳ Time Complexity:** `O(n^2)`
+- **💾 Space Complexity:** `O(n)`
+
+```java
+// Code implementation for Problem 1
 [Write your Java code here]
 ```
 
 ---
 
 ### 🧩 Problem 3: [Problem Title or Description]
-- **Approach:**
-  - *[Briefly describe your approach, e.g., Two-pointer technique, Dynamic programming with memoization, etc.]*
-- **⏳ Time Complexity:** `[e.g., O(n), O(log n)]`
-- **💾 Space Complexity:** `[e.g., O(1), O(n)]`
+- **Approach 1: Bruteforce**
+  - *[Briefly describe your approach]*
+- **⏳ Time Complexity:** `O(n^2)`
+- **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 3
+// Code implementation for Problem 1
+[Write your Java code here]
+```
+
+- **Approach 2: Optimized**
+  - *[Briefly describe your approach]*
+- **⏳ Time Complexity:** `O(n^2)`
+- **💾 Space Complexity:** `O(n)`
+
+```java
+// Code implementation for Problem 1
 [Write your Java code here]
 ```
 
