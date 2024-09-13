@@ -35,7 +35,7 @@
 - **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 1
+// Code implementation for Problem 2
 [Write your Java code here]
 ```
 
@@ -45,7 +45,7 @@
 - **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 1
+// Code implementation for Problem 2
 [Write your Java code here]
 ```
 
@@ -58,7 +58,7 @@
 - **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 1
+// Code implementation for Problem 3
 [Write your Java code here]
 ```
 
@@ -68,7 +68,7 @@
 - **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 1
+// Code implementation for Problem 3
 [Write your Java code here]
 ```
 

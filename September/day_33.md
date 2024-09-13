@@ -5,48 +5,102 @@
 
 ---
 
-### 🧩 Problem 1: [Problem Title or Description]
+### 🧩 Problem 1: Find the maximum sum of contiguous non-empty subarray within an array A of length N.
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
+  - *CarryForware this is not actual bruteforce, actual brute force is to iterate over all subarrays*
 - **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 1
-[Write your Java code here]
+public int maxSubArray(final int[] A) {
+  int result = Integer.MIN_VALUE;
+
+  for(int i = 0; i < A.length; i++){
+    int sum = 0;
+    for(int j = i; j < A.length; j++){
+      sum += A[j];
+      result = Math.max(result, sum);
+
+    }
+  }
+  return result;
+}
 ```
 
 - **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Intution is hard to get, tricky solution*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 1
-[Write your Java code here]
+public int maxSubArray(final int[] A) {
+  int result = Integer.MIN_VALUE;
+  int sum = 0;
+  for(int i = 0; i < A.length; i++){
+    sum = sum + A[i];
+    sum = Math.max(sum, A[i]);
+    result = Math.max(result, sum);
+  }
+  return result;
+}
 ```
 
 ---
 
-### 🧩 Problem 2: [Problem Title or Description]
+### 🧩 Problem 2: 
+You are given an integer array A of length N.
+You have to find the sum of all subarray sums of A.
+More formally, a subarray is defined as a contiguous part of an array which we can obtain by deleting zero or more elements from either end of the array.
+A subarray sum denotes the sum of all the elements of that subarray.
+
+Note : Be careful of integer overflow issues while calculations. Use appropriate datatypes.
 - **Approach 1: Bruteforce**
   - *[Briefly describe your approach]*
 - **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
-// Code implementation for Problem 1
-[Write your Java code here]
+// Code implementation for Problem 2
+public long subarraySum(int[] A) {
+
+  int result = 0;
+  for(int i = 0; i < A.length; i++){
+    int sum = 0;
+    for(int j = i; j < A.length; j++){
+
+      sum = sum + A[j];
+      result += sum;
+    }
+
+
+  }
+
+  return result;
+}
 ```
 
 - **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Calculate every index contribution and add up those*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
-// Code implementation for Problem 1
-[Write your Java code here]
+// Code implementation for Problem 2
+public long subarraySum(int[] A) {
+
+  long result = 0;
+  for(int i = 0; i < A.length; i++){
+
+    long itotal = (long)(A.length - i) * (i + 1);
+    long ithsum = itotal * A[i];
+    result += ithsum;
+
+  }
+
+  return result;
+}
 ```
 
 ---
@@ -58,7 +112,7 @@
 - **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 1
+// Code implementation for Problem 3
 [Write your Java code here]
 ```
 
@@ -68,7 +122,7 @@
 - **💾 Space Complexity:** `O(n)`
 
 ```java
-// Code implementation for Problem 1
+// Code implementation for Problem 3
 [Write your Java code here]
 ```
 
