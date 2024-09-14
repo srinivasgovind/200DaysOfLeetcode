@@ -105,25 +105,39 @@ public long subarraySum(int[] A) {
 
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
+### 🧩 Problem 3: 
+You are given an integer array C of size A. Now you need to find a subarray (contiguous elements) so that the sum of contiguous elements is maximum.
+But the sum must not exceed B.
+
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
+  - *Caryforward thinking instead of bruteforce of iterating all subarrays*
 - **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
-```
+public int maxSubarray(int A, int B, int[] C) {
 
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  int maxsum = 0;
 
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
+  for(int i = 0; i < A; i++){
+
+    int sum  = 0;
+
+    for(int j = i; j < A; j++){
+
+      sum += C[j];
+      if(sum <= B){
+        maxsum = Math.max(maxsum, sum);
+      }
+      else{
+          break;  // this statements is needed bcz input array contains postive numbers only
+      }
+    }
+  }
+  return maxsum;
+}
+
 ```
 
 ---
