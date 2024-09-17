@@ -48,38 +48,81 @@ public int[] solve(int[] A, int B) {
 
 ---
 
-### 🧩 Problem 2: [Problem Title or Description]
+### 🧩 Problem 2: 
+You are given two matrices A & B of same size, you have to return another matrix which is the sum of A and B.
+Note: Matrices are of same size means the number of rows and number of columns of both matrices are equal.
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
+  - *Bruteforce way*
 - **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 2
-[Write your Java code here]
+public int[][] solve(int[][] A, int[][] B) {
+
+  int[][] result = new int[A.length][A[0].length];
+
+  for(int i = 0; i < A.length; i++){
+    for(int j = 0; j < A[0].length; j++){
+      result[i][j] = A[i][j] + B[i][j];
+    }
+  }
+  return result;
+}
 ```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 2
-[Write your Java code here]
-```
-
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
+### 🧩 Problem 3: 
+Give a N * N square matrix A, return an array of its anti-diagonals. Look at the example for more details.
+input
+1 2 3
+4 5 6
+7 8 9
+
+output
+1 0 0
+2 4 0
+3 5 7
+6 8 0
+9 0 0
 - **Approach 1: Bruteforce**
   - *[Briefly describe your approach]*
 - **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
+public int[][] diagonal(int[][] A) {
+  int n = A.length;
+  int [][] result = new int [2*n-1][n];
+
+  int x=0;
+  int y= 0;
+
+  for(int j =0; j < n; j++){
+    int i = 0;
+    int k = j;
+    y = 0;
+    while(i < n && k >= 0){
+      result[x][y] = A[i][k];
+      y++;
+      i++;
+      k--;
+    }
+    x++;
+  }
+
+  for(int i =1; i < n; i++){
+    int j= n-1; int k = i; y=0;
+    while(j>=0 && k < n){
+      result[x][y] = A[k][j];
+      k++; j--;
+      y++;
+    }
+    x++;
+  }
+  return result;
+}
 ```
 
 - **Approach 2: Optimized**
