@@ -125,15 +125,5 @@ public int[][] diagonal(int[][] A) {
 }
 ```
 
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
-```
-
 ---
 
