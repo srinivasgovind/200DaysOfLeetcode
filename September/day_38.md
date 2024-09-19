@@ -5,71 +5,69 @@
 
 ---
 
-### 🧩 Problem 1: [Problem Title or Description]
+### 🧩 Problem 1: Minor Diagonal Sum
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Bruteforce way*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 1
-[Write your Java code here]
+public int solve(final int[][] A) {
+
+  int sum = 0;
+  int i = 0;
+  int j = A[0].length - 1;
+
+  while( i < A.length && j >= 0){
+    sum += A[i][j];
+    i++;
+    j--;
+  }
+  return sum;
+}
 ```
+---
 
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+### 🧩 Problem 2: Are Matrices Same ?
+- **Approach 1: Bruteforce**
+  - *Bruteforce way*
+- **⏳ Time Complexity:** `O(m*n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
-// Code implementation for Problem 1
-[Write your Java code here]
+// Code implementation for Problem 2
+public int solve(int[][] A, int[][] B) {
+
+  for(int i = 0; i < A.length; i++){
+    for(int j = 0; j < A[0].length; j++){
+      if(A[i][j] != B[i][j]){
+        return 0;
+      }
+    }
+  }
+  return 1;
+}
 ```
 
 ---
 
-### 🧩 Problem 2: [Problem Title or Description]
+### 🧩 Problem 3: Matrix Scaler Product
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 2
-[Write your Java code here]
-```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 2
-[Write your Java code here]
-```
-
----
-
-### 🧩 Problem 3: [Problem Title or Description]
-- **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Bruteforce way*
+- **⏳ Time Complexity:** `O(n*m)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
-```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
+public int[][] solve(int[][] A, int B) {
+  for(int i = 0; i < A.length; i++){
+    for(int j = 0; j < A[0].length; j++){
+      A[i][j] = A[i][j] * B;
+    }
+  }
+  return A;
+}
 ```
 
 ---
