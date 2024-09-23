@@ -13,7 +13,7 @@ You are to choose 3 trees such that their total cost is minimum. Return that cos
 
 If it is not possible to choose 3 such trees return -1.
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
+  - *Bruteforce way by iterating all possible pairs*
 - **⏳ Time Complexity:** `O(n^3)`
 - **💾 Space Complexity:** `O(1)`
 
@@ -80,48 +80,157 @@ public int solve(int[] A, int[] B) {
 
 ---
 
-### 🧩 Problem 2: [Problem Title or Description]
+### 🧩 Problem 2: 
+Given an array of integers A, of size N.
+
+Return the maximum size subarray of A having only non-negative elements. If there are more than one such subarray, return the one having the smallest starting index in A.
+
+NOTE: It is guaranteed that an answer always exists.
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Bruteforce way by iterating all subarrays*
+- **⏳ Time Complexity:** `O(n^3)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 2
-[Write your Java code here]
+public int[] solve(int[] A) {
+  List<Integer> arrayList = new ArrayList<>();
+  int maxlength = 0;
+  int start = 0;
+  int end = 0;
+  for(int i  = 0; i < A.length; i++){
+    for(int j = i; j<A.length; j++){
+      int flag = 0;
+      for(int k = i; k <= j; k++){
+        if(A[k] < 0){
+          flag = 1;
+          break;
+        }
+      }
+      if(flag == 0 && j-i+1 > maxlength){
+        start = i;
+        end  = j;
+        maxlength = j-i+1;
+      }
+
+    }
+
+  }
+  int result[] = new int[maxlength];
+  int ptr = 0;
+  for(int i = start; i <=end; i++){
+    result[ptr] = A[i];
+    ptr++;
+  }
+  return result;
+}
 ```
 
 - **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - * using pointers, when negative number comes, drop existing i and j and start fresh*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 2
-[Write your Java code here]
+public int[] solve(int[] A) {
+  int maxlength = 0;
+  int start = 0;
+  int end = 0;
+  int i = 0;
+  int j = 0;
+  while(i < A.length && j < A.length){
+
+    if(A[j]>0){
+      j++;
+    }
+    else{
+
+      if(j-i > maxlength){
+        start = i;
+        end  = j-1;
+        maxlength = j-i;
+      }
+      i = j+1;
+      j++;
+
+    }
+
+  }
+  if(j-i > maxlength){
+    start = i;
+    end  = j-1;
+    maxlength = j-i;
+  }
+
+  int result[] = new int[maxlength];
+  int ptr = 0;
+  for(int k = start; k<=end; k++){
+    result[ptr] = A[k];
+    ptr++;
+  }
+  return result;
+}
 ```
 
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
+### 🧩 Problem 3: 
+************
+*****  *****
+****    ****
+***      ***
+**        **
+*          *
+*          *
+**        **
+***      ***
+****    ****
+*****  *****
+************
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
+  - *Bruteforce way*
 - **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
-```
+public static void main(String[] args) {
+  // YOUR CODE GOES HERE
+  // Please take input and print output to standard input/output (stdin/stdout)
+  // DO NOT USE ARGUMENTS FOR INPUTS
+  // E.g. 'Scanner' for input & 'System.out' for output
+  Scanner sc = new Scanner(System.in);
+  int n = sc.nextInt();
+  for(int i = n; i>=1; i--){
+    int noofspaces = n*2 - i*2;
+    for(int j = 1; j <=i; j++){
+      System.out.print("*");
+    }
+    for(int j=1; j<=noofspaces; j++){
+      System.out.print(" ");
+    }
+    for(int j = 1; j <=i; j++){
+      System.out.print("*");
+    }
+    System.out.println();
+  }
 
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  for(int i = 1; i<=n; i++){
+    int noofspaces = n*2 - i*2;
+    for(int j = 1; j <=i; j++){
+      System.out.print("*");
+    }
+    for(int j=1; j<=noofspaces; j++){
+      System.out.print(" ");
+    }
+    for(int j = 1; j <=i; j++){
+      System.out.print("*");
+    }
+    System.out.println();
+  }
 
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
+}
 ```
 
 ---
