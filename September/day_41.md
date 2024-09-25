@@ -9,8 +9,62 @@
 Given a binary string A. It is allowed to do at most one swap between any 0 and 1. Find and return the length of the longest consecutive 1’s that can be achieved.
 - **Approach 1: Bruteforce**
   - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n)`
+- **⏳ Time Complexity:** `O(n^2)`
 - **💾 Space Complexity:** `O(1)`
+
+```java
+// Code implementation for Problem 1
+public int solve(String A) {
+  int maxAns=0;
+  int ones=0;
+  for(int i=0;i<A.length();i++){
+    char ch=A.charAt(i);
+    if(ch=='1'){
+      ones++;
+    }
+  }
+  if(ones==A.length()){
+    return ones;
+  }
+  for(int i=0;i<A.length();i++){
+    char ch=A.charAt(i);
+    int left=0;
+    int right=0;
+    if(ch=='0'){
+      for(int j=i-1;j>=0;j--){
+        char ch1=A.charAt(j);
+        if(ch1=='1'){
+          ++left;
+        }else{
+          break;
+        }
+      }
+      for(int j=i+1;j<A.length();j++){
+        char ch1=A.charAt(j);
+        if(ch1=='1'){
+          ++right;
+        }else{
+          break;
+        }
+      }
+      int sum=left+right;
+      if (sum < ones)
+        maxAns = Math.max(maxAns, sum + 1);
+
+      else
+        maxAns = Math.max(maxAns, sum);
+
+    }
+
+  }
+  return maxAns;
+}
+```
+
+- **Approach 2: Optimized**
+  - *[Briefly describe your approach]*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(n)`
 
 ```java
 // Code implementation for Problem 1
@@ -71,16 +125,6 @@ public int solve(String A) {
   return max_count;
 
 }
-```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 1
-[Write your Java code here]
 ```
 
 ---
