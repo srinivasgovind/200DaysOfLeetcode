@@ -129,48 +129,100 @@ public int solve(String A) {
 
 ---
 
-### 🧩 Problem 2: [Problem Title or Description]
+### 🧩 Problem 2: 
+Given an array of integers A, every element appears twice except for one. Find that integer that occurs once.
+
+NOTE: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 - **Approach 1: Bruteforce**
   - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
+- **⏳ Time Complexity:** `O(n)`
 - **💾 Space Complexity:** `O(n)`
 
 ```java
 // Code implementation for Problem 2
-[Write your Java code here]
+public int singleNumber(final int[] A) {
+  Map<Integer, Integer> map = new HashMap<>();
+  for(int i = 0; i < A.length; i++){
+    if(map.containsKey(A[i])){
+      map.put(A[i], 2);
+    }else{
+      map.put(A[i],1);
+    }
+  }
+
+  for(Map.Entry<Integer,Integer> item: map.entrySet()){
+    if(item.getValue() == 1){
+      return item.getKey();
+    }
+  }
+  return -1;
+}
 ```
 
 - **Approach 2: Optimized**
   - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 2
-[Write your Java code here]
+public int singleNumber(final int[] A) {
+
+  int ans = 0;
+  for(int i = 0; i < A.length; i++){
+    ans = ans ^ A[i];
+  }
+  return ans;
+}
 ```
 
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
+### 🧩 Problem 3: 
+Write a function that takes an integer and returns the number of 1 bits present in its binary representation.
 - **Approach 1: Bruteforce**
   - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **⏳ Time Complexity:** `O(logn)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
+public int numSetBits(int A) {
+  int noOfOnes = 0;
+
+  while(A > 0){
+
+    noOfOnes += A %2;
+    A = A/2;
+
+  }
+  return noOfOnes;
+}
 ```
 
 - **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *The number of iterations of the while loop depends on how many set bits are in the binary representation of A.
+
+In the worst case, if all bits of A are set (e.g., for a number like 1111...1111), the number of iterations would be equal to the number of bits in A.
+
+For a 32-bit integer, the loop will run at most 32 times (if all bits are 1s).
+
+Therefore, the time complexity of the function is O(number of set bits in A), which in the worst case is O(log A) for an integer A, because the number of bits required to represent A in binary is proportional to log A.*
+- **⏳ Time Complexity:** `O(logA)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
+public int numSetBits(int A) {
+  int noOfOnes = 0;
+
+  while(A != 0){
+    A = A & (A - 1);
+    noOfOnes += 1;
+
+  }
+  return noOfOnes;
+}
 ```
 
 ---
