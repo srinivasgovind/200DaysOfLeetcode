@@ -124,15 +124,40 @@ public String solve(int[] A) {
 
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
+### 🧩 Problem 3: Reverse the bits of an 32 bit unsigned integer A.
+        00000000000000000000000000000011    
+        11000000000000000000000000000000
 - **Approach 1: Bruteforce**
   - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+- **⏳ Time Complexity:** `O(logn)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
+public long reverse(long A) {
+  if(A == 0){
+    return 0;
+  }
+  StringBuilder sb = new StringBuilder();
+
+  while(A!=0){
+    sb.append((char) (A%2  + '0'));
+    A = A/2;
+  }
+  int remlen = 32 - sb.length();
+
+  for(int i = 0; i < remlen; i++){
+    sb.append('0');
+  }
+  String reversestr = sb.toString();
+  long result = 0;
+  int k = 0;
+  for(int i = reversestr.length()-1; i >= 0; i--){
+    result += (reversestr.charAt(i) - '0' )* Math.pow(2, k);
+    k++;
+  }
+  return result;
+}
 ```
 
 - **Approach 2: Optimized**
