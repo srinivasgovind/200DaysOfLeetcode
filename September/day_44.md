@@ -105,8 +105,5 @@ public long solve(long A, int B) {
 }
 ```
 
-
-```
-
 ---
 
