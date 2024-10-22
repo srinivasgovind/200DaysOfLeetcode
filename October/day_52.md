@@ -5,72 +5,63 @@
 
 ---
 
-### 🧩 Problem 1: [Problem Title or Description]
+### 🧩 Problem 1: toLower()
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Bruteforce thinking*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 1
-[Write your Java code here]
+public char[] to_lower(char[] A) {
+
+  for(int i = 0; i < A.length; i++){
+    if(A[i] >= 65 && A[i] <= 90){
+      A[i] += 32;
+    }
+  }
+  return A;
+}
 ```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 1
-[Write your Java code here]
-```
-
 ---
 
-### 🧩 Problem 2: [Problem Title or Description]
+### 🧩 Problem 2: toUpper()
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Bruteforce way*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 2
-[Write your Java code here]
+public char[] to_upper(char[] A) {
+  for(int i = 0; i < A.length; i++){
+
+    if(A[i] >= 97 && A[i] <= 122){
+      A[i] = (char)(A[i] - 32);
+    }
+  }
+  return A;
+}
+}
 ```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 2
-[Write your Java code here]
-```
-
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
+### 🧩 Problem 3: isAlpha
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Bruteforce way*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(1)`
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
+public int solve(char[] A) {
+  for(int i = 0; i < A.length; i++){
+    if(!(A[i] >= 65 && A[i] <= 90 || A[i] >= 97 && A[i] <= 122 || A[i] >= 48 && A[i] <= 57)){
+      return 0;
+    }
+  }
+  return 1;
+}
 ```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
-```
-
 ---
 
