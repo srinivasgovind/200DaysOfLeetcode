@@ -201,26 +201,101 @@ public ListNode solve(int[][] A) {
 
 ---
 
-### 🧩 Problem 3: [Problem Title or Description]
+### 🧩 Problem 3: 
+You are given a nested list of integers nestedList. Each element is either an integer or a list whose elements may also be integers or other lists. Implement an iterator to flatten it.
+
+Implement the NestedIterator class:
+
+NestedIterator(List nestedList) Initializes the iterator with the nested list nestedList.
+int next() Returns the next integer in the nested list.
+boolean hasNext() Returns true if there are still some integers in the nested list and false otherwise.
+
+Input: nestedList = [[1,1],2,[1,1]]
+Output: [1,1,2,1,1]
+Explanation: By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1].
+
+Input: nestedList = [1,[4,[6]]]
+Output: [1,4,6]
+Explanation: By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,4,6].
+
 - **Approach 1: Bruteforce**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
+  - *Read the existing fns they provide, and utilize the recursion to flaten nestedList*
 
 ```java
 // Code implementation for Problem 3
-[Write your Java code here]
+// public class Main {
+//     public static void main(String[] args) {
+
+//     }
+
+//     // This is the interface that allows for creating nested lists.
+//     // You should not implement it, or speculate about its implementation.
+//     class NestedInteger {
+
+//         NestedInteger(int x) {
+//         }
+
+//         // Return true if this NestedInteger holds a single integer, rather than a nested list.
+//         boolean isInteger() {
+//         }
+
+//         // Return the single integer that this NestedInteger holds, if it holds a single integer.
+//         // The result is 1e9 if this NestedInteger holds a nested list.
+//         int getInteger() {
+
+//         }
+
+//         // Return the nested list that this NestedInteger holds, if it holds a nested list.
+//         // The result is an empty ArrayList if this NestedInteger holds a single integer.
+//         ArrayList<NestedInteger> getList() {
+
+//         }
+//     }
+
+class NestedIterator {
+  int size = 0;
+
+  ArrayList<Integer> result;
+  int n = 0;
+  int index = 0;
+
+  NestedIterator(ArrayList<NestedInteger> nestedList) {
+    result = new ArrayList<>();
+    recursionHelper(nestedList);
+    n = result.size();
+
+
+  }
+
+  void recursionHelper(ArrayList<NestedInteger> nestedList){
+
+    for(int i = 0; i < nestedList.size(); i++){
+      if(nestedList.get(i).isInteger()){
+        result.add(nestedList.get(i).getInteger());
+      }
+      else{
+        recursionHelper(nestedList.get(i).getList());
+      }
+    }
+  }
+
+
+  int next() {
+    if(index < n){
+
+      return result.get(index++);
+
+    }
+    return -1;
+  }
+
+  boolean hasNext() {
+    if(index < n){
+      return true;
+    }
+    return false;
+  }
+}
 ```
-
-- **Approach 2: Optimized**
-  - *[Briefly describe your approach]*
-- **⏳ Time Complexity:** `O(n^2)`
-- **💾 Space Complexity:** `O(n)`
-
-```java
-// Code implementation for Problem 3
-[Write your Java code here]
-```
-
 ---
 
