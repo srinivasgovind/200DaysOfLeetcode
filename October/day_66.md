@@ -5,7 +5,8 @@
 
 ---
 
-### 🧩 Problem 1: Given a binary tree, return the preorder traversal of its nodes values.
+### 🧩 Problem 1: 
+Given a binary tree, return the preorder traversal of its nodes values.
 - **Approach 1: Bruteforce**
   - *Recursive approach*
 - **⏳ Time Complexity:** `O(n)`
@@ -89,7 +90,8 @@ public class Solution {
 
 ---
 
-### 🧩 Problem 2: Given a binary tree, return the Postorder traversal of its nodes values.
+### 🧩 Problem 2: 
+Given a binary tree, return the Postorder traversal of its nodes values.
 - **Approach 1: Bruteforce**
   - *Recursion*
 - **⏳ Time Complexity:** `O(n)`
