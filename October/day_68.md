@@ -190,3 +190,56 @@ public TreeNode invertTree(TreeNode A) {
 
 ---
 
+### 🧩 Problem 4:
+Given a binary tree A, find the path from the root node to given B (For all test cases there will be a path).
+
+- **Approach 1: Bruteforce**
+  - *Recursive thinking*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(n)`
+
+- **Approach 1: Optimized**
+  - *More readable*
+- **⏳ Time Complexity:** `O(n)`
+- **💾 Space Complexity:** `O(n)`
+
+```java
+/**
+ * Definition for binary tree
+ * class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) {
+ *      val = x;
+ *      left=null;
+ *      right=null;
+ *     }
+ * }
+ */
+public class Solution {
+  public List<Integer> path = new ArrayList<>();
+  public int[] solve(TreeNode A, int B) {
+    findPath(A, B);
+    return path.stream().mapToInt(i -> i).toArray();
+  }
+
+  boolean findPath(TreeNode root, int B){
+    if(root == null){
+      return false;
+    }
+    path.add(root.val);
+
+    if(root.val == B){
+      return true;
+    }
+    if(findPath(root.left, B) || findPath(root.right, B)){
+      return true;
+    }
+    path.remove(path.size() -1);
+    return false;
+  }
+}
+```
+
+---
